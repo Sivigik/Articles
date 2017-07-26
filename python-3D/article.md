@@ -1,4 +1,13 @@
-Le langage Python est un outil incroyable. Parmi les multiples bibliothèques que fourni la communauté, on retrouve les incontournables Matplotlib et Numpy. Ces deux bibliothèques sont très puissantes et permettent la manipulation et la présentation de données aisément. Je vous proposerais régulièrement des petits tutoriels avec exemples pour réaliser des rendus de données avec matplotlib. Pour vous donner une idée de ce qu'on peut faire, voici une animation d'exemple que j'ai réalisée ainsi que le code qui l'a généré. \[video width="2400" height="1800" mp4="http://sivigik.com/wp-content/uploads/2016/02/article.mp4"][/video\] (si la vidéo ne charge pas, vous pouvez la télécharger <a href="http://sivigik.com/wp-content/uploads/2016/02/article.mp4" target="_blank">ici</a>) <pre class="lang:python decode:true " >import numpy as np
+Le langage Python est un outil incroyable. Parmi les multiples bibliothèques que fourni la communauté, on retrouve les incontournables Matplotlib et Numpy. Ces deux bibliothèques sont très puissantes et permettent la manipulation et la présentation de données aisément. Je vous proposerais régulièrement des petits tutoriels avec exemples pour réaliser des rendus de données avec matplotlib. Pour vous donner une idée de ce qu'on peut faire, voici une animation d'exemple que j'ai réalisée ainsi que le code qui l'a généré. 
+
+<video controls>
+<source src="http://sivigik.com/wp-content/uploads/2016/02/article.mp4" type="video/mp4">
+</video>
+
+Si la vidéo de charge pas, voir [ici]().
+
+```python
+import numpy as np
 import matplotlib.pyplot as pl
 from matplotlib import cm
 from mpl_toolkits.mplot3d import axes3d
@@ -47,9 +56,15 @@ ani = anim.FuncAnimation(fig, update, n_image,interval=20)
 ani.save('article.mp4', fps=48, bitrate=120, dpi=300)
 print()
 
-</pre> D'autres animations que j'ai pu réaliser: 
+```
 
-![Un développement limité][1] ![Le même présenté différemment ][2] ![le développement limité de cosinus à différents ordres][3]
+D'autres animations que j'ai pu réaliser: 
+
+![Un développement limité][1] 
+
+![Le même présenté différemment ][2] 
+
+![le développement limité de cosinus à différents ordres][3]
 
  [1]: http://sivigik.com/animation.gif
  [2]: http://sivigik.com/Animation3D.gif
