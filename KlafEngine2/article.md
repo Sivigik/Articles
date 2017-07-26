@@ -17,9 +17,10 @@ La dernière grosse partie du coeur de KlafEngine est constituée par les systè
 
 `System` est déclarée "amie" de la classe `Application`. Il implémente une méthode protégée qui permet à ses classes filles d'accéder aux composants de leurs applications. 
 # Un exemple pour (essayer) de comprendre. 
-Vous trouverez dans les fichiers d'exemples le fichier "coreExample.cpp". Il montre comment utiliser simplement le coeur de KlafEngine. Je vais ici le commenter. On va ici créer notre propre type de composants. Pour cela on le fait hériter de ComponentData et on crée la 
+Vous trouverez dans les fichiers d'exemples le fichier "coreExample.cpp". Il montre comment utiliser simplement le coeur de KlafEngine. Je vais ici le commenter. On va ici créer notre propre type de composants. Pour cela on le fait hériter de ComponentData et on crée la *factory* adaptée. 
 
-*factory* adaptée. <pre class="lang:c++ decode:true " >class MyCompData : public klf::ComponentData
+```c++
+class MyCompData : public klf::ComponentData
 {
 public:
         MyCompData() : x(0), y(0) {}
@@ -32,9 +33,13 @@ std::unique_ptr&lt;klf::Component&gt; factory(unsigned int e)
         std::unique_ptr&lt;klf::Component&gt; c = klf::Component::createEmptyComponent(e);
         c-&gt;value = std::shared_ptr&lt;klf::ComponentData&gt;(new MyCompData());
         return c;
-}</pre> Nous avons ensuite besoin d'un système pour manipuler le tout. 
+}
+```
 
-<pre class="lang:c++ decode:true " >class MySystem : public klf::System
+Nous avons ensuite besoin d'un système pour manipuler le tout. 
+
+```c++
+class MySystem : public klf::System
 {
 public:
         MySystem(klf::Application& app) : klf::System(app) {}
@@ -46,9 +51,13 @@ public:
                 std::cout &lt;&lt; "Entity : " &lt;&lt; c.entity &lt;&lt; " " &lt;&lt; d-&gt;x &lt;&lt; " " &lt;&lt; d-&gt;y &lt;&lt; std::endl;
                 d-&gt;x += 20;
         }
-};</pre> Une petite implémentation de 
+};
+```
 
-`range` plus tard, on a plus qu'à s'occuper de la fonction principale. <pre class="lang:c++ decode:true " >int main()
+Une petite implémentation de `range` plus tard, on a plus qu'à s'occuper de la fonction principale. 
+
+```c++
+int main()
 {
         sf::RenderWindow window(sf::VideoMode(800, 600), "KlafEngine");
         klf::Application app;
@@ -83,9 +92,13 @@ public:
         s.onUpdate();
 
         return EXIT_SUCCESS;
-}</pre> On retrouve la structure d'un programme classique de la SFML. On pourra noter 
+}
+```
 
-`app.registerComponentType(1, factory);` qui permet d'enregistrer notre composant en tant que composant auprès de l'application avec le flag 1. Ensuite on joue avec l'API pour créer/supprimer des entitées et modifier leurs composants. On peut noter que l'utilisation des systèmes est relativement inélégante pour l'instant. Il faut que je trouve une solution. Pour information, voici ce qu'affiche cet exemple : <pre class="lang:sh decode:true " >$ ./coreExample 
+On retrouve la structure d'un programme classique de la SFML. On pourra noter `app.registerComponentType(1, factory);` qui permet d'enregistrer notre composant en tant que composant auprès de l'application avec le flag 1. Ensuite on joue avec l'API pour créer/supprimer des entitées et modifier leurs composants. On peut noter que l'utilisation des systèmes est relativement inélégante pour l'instant. Il faut que je trouve une solution. Pour information, voici ce qu'affiche cet exemple : 
+
+```shell
+$ ./coreExample 
 Let's create 100 entites with our MyCompData as component.
 Done.
 Let's remove entites 40 to 59 .
@@ -95,12 +108,17 @@ Let's create a system and update it !
 Update ! 
 Entity : 0 0 0
 Update ! 
-Entity : 0 20 0</pre>
+Entity : 0 20 0
+```
 
 # La partie qui n'a rien à voir. 
 Pour parler un peu moins de technique, j'ai découvert tout récemment 
 
-**Dear ImGui** et son portage pour SFML. N'hésitez pas à jeter un coup d'oeuil [ici][4]. Voici ce que j'obtiens en compilant "simplement" l'exemple fourni : [video width="1376" height="770" mp4="http://sivigik.com/wp-content/uploads/2016/06/ImGui1.mp4"][/video] 
+**Dear ImGui** et son portage pour SFML. N'hésitez pas à jeter un coup d'oeuil [ici][4]. Voici ce que j'obtiens en compilant "simplement" l'exemple fourni : 
+
+<video controls>
+<source src="http://sivigik.com/wp-content/uploads/2016/06/ImGui1.mp4" type="video/mp4">
+</video>
 
 C'est tout pour aujourd'hui ! à la prochaine. :)
 
