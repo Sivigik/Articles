@@ -13,69 +13,77 @@ Nous découperons notre code en 3 fonctions : - une première, qui sera en réal
 ## BANZAÏ ! 
 Le générateur : 
 
-    def csv_to_cell(s):
-        c = ""
-        for i in s:
-            if i is ",":
-                yield (c,'END_CELL')
-                c=""
-            elif i is "\n":
-                yield (c,'END_LINE')
-                c=""
-            else:
-                c+=i
-       yield (c,'END_LINE')
+```python
+def csv_to_cell(s):
+    c = ""
+    for i in s:
+        if i is ",":
+            yield (c,'END_CELL')
+            c=""
+        elif i is "\n":
+            yield (c,'END_LINE')
+            c=""
+        else:
+            c+=i
+   yield (c,'END_LINE')
+```
 
 On se contente ici de renvoyer le contenu des cellules une par une avec une information sur la nature de la transition. La partie assemblage de tableau : 
 
-    def build_table(s):
-        table = []
-        row = []
-        for i in csv_to_cell(s):
-            row.append(i[0])
-            if i[1] == "END_LINE":
-                table.append(row[:])
-                row = []
-        return table
-
+```python
+def build_table(s):
+    table = []
+    row = []
+    for i in csv_to_cell(s):
+        row.append(i[0])
+        if i[1] == "END_LINE":
+            table.append(row[:])
+            row = []
+    return table
+```
 Rien de bien compliqué ici, je pense que le code se suffit à lui même. La lecture de fichier : 
 
-    def table_from_file(filename):
-        r=None
-        with open(filename, "r") as f:
-            r = build_table(f.read())
-        return r
-
+```python
+def table_from_file(filename):
+    r=None
+    with open(filename, "r") as f:
+        r = build_table(f.read())
+    return r
+```
 On peut difficilement faire plus simple ! 
 
 ## Retour vers la réalité
 
-> Attends voir... tu nous avais dit que l'on allait éviter de stocker toutes les données dans une liste non ?  
+> Attends voir... tu nous avais dit que l'on allait éviter de stocker toutes les données dans une liste non ?
 
 Bien vu ! Nous allons donc pouvoir coder une fonction qui renvoie des lignes à partir de chaînes de caractères reçues en entrée. Je vous propose d'essayer de la coder vous-même avant de regarder la correction. Petit indice, vous aurez besoin de `yield` ! C'est bon ? Voici ma version: 
 
-    def csv_to_line(lines):
-        for l in lines:
-            yield [c[0] for c in csv_to_cell(l)]
-
+```python
+def csv_to_line(lines):
+    for l in lines:
+        yield [c[0] for c in csv_to_cell(l)]
+```
 L'intérêt de ce genre de structure est de pouvoir recevoir des données à la volée (d'une Arduino par exemple :-° ). Une petite application : 
 
-    def reader():
-        while True:
-            yield input("> ")
-    
-    def printer(it):
-        for i in it:
-            print(i)
-    
-    if __name__ == '__main__':
-        printer(csv_to_line(reader()))
-     Le résultat : 
+```python
+def reader():
+    while True:
+        yield input("> ")
 
-    \> 1,2,3,4,5
-    ['1', '2', '3', '4', '5']
-    \>
-    
+def printer(it):
+    for i in it:
+        print(i)
+
+if __name__ == '__main__':
+    printer(csv_to_line(reader()))
+```
+Le résultat : 
+
+```shell
+> 1,2,3,4,5
+['1', '2', '3', '4', '5']
+>
+```
 
 ## Garçon ? Plus de sucre s'il vous plaît. 
 On peut encore améliorer tout ça ! 
@@ -84,96 +92,96 @@ On peut encore améliorer tout ça !
 
 Bah oui, on va quand même pas se fatiguer à traiter nous-même les données quand on peut demander à notre lib' de le faire ! 
 
-    def csv_to_cell(s, converter=str):
-        c = ""
-        for x,i in enumerate(s):
-            if i is ",":
-                yield (converter(c),'END_CELL')
-                c=""
-            elif i is "\n":
-                yield (converter(c),'END_LINE')
-                c=""
-            else:
-                c+=i
-        try:
+```python
+def csv_to_cell(s, converter=str):
+    c = ""
+    for x,i in enumerate(s):
+        if i is ",":
+            yield (converter(c),'END_CELL')
+            c=""
+        elif i is "\n":
             yield (converter(c),'END_LINE')
-        except ValueError:
-            pass
-    
-    def build_table(s, converter=str):
-        table = []
-        row = []
-        for i in csv_to_cell(s,converter):
-            row.append(i[0])
-            if i[1] == "END_LINE":
-                table.append(row[:])
-                row = []
-        return table
-    
-    def table_from_file(filename,converter=str):
-        r=None
-        with open(filename, "r") as f:
-            r = build_table(f.read())
-        return r
-    
-    def csv_to_line(lines, converter=str):
-        for l in lines:
-            yield [c[0] for c in csv_to_cell(l, converter)]
-    
-    def reader():
-        while True:
-            yield input("> ")
-    
-    def printer(it):
-        for i in it:
-            print(i)
-    
-    if __name__ == '__main__':
-        printer(csv_to_line(reader(), float))
-    
+            c=""
+        else:
+            c+=i
+    try:
+        yield (converter(c),'END_LINE')
+    except ValueError:
+        pass
+
+def build_table(s, converter=str):
+    table = []
+    row = []
+    for i in csv_to_cell(s,converter):
+        row.append(i[0])
+        if i[1] == "END_LINE":
+            table.append(row[:])
+            row = []
+    return table
+
+def table_from_file(filename,converter=str):
+    r=None
+    with open(filename, "r") as f:
+        r = build_table(f.read())
+    return r
+
+def csv_to_line(lines, converter=str):
+    for l in lines:
+        yield [c[0] for c in csv_to_cell(l, converter)]
+
+def reader():
+    while True:
+        yield input("> ")
+
+def printer(it):
+    for i in it:
+        print(i)
+
+if __name__ == '__main__':
+    printer(csv_to_line(reader(), float))
+```    
 
 ## Des titres à nos colonnes 
 
 Tant qu'à stocker des données, autant savoir ce que c'est ! 
 
-    def create_dict_from_columns(table):
-        d = {}
-        eq = {}
-        for x,cell in enumerate(table[0]):
-            d[cell] = []
-            eq[cell] = x
-        for key in d:
-            for row in table[1:]:
-                d[key].append(row[eq[key]])
-        return d
-    
-    def dict_from_file(filename, converter=float):
-        r=None
-        with open(filename, "r") as f:
-            r = f.read()
-        assert r
-    
-        table = []
+```python
+def create_dict_from_columns(table):
+    d = {}
+    eq = {}
+    for x,cell in enumerate(table[0]):
+        d[cell] = []
+        eq[cell] = x
+    for key in d:
+        for row in table[1:]:
+            d[key].append(row[eq[key]])
+    return d
+
+def dict_from_file(filename, converter=float):
+    r=None
+    with open(filename, "r") as f:
+        r = f.read()
+    assert r
+
+    table = []
+    row = []
+    r = r.split('\n')
+    for c in csv_to_cell(r[0],str):
+        row.append(c[0])
+        table.append(row[:])
         row = []
-        r = r.split('\n')
-        for c in csv_to_cell(r[0],str):
-            row.append(c[0])
+    for c in csv_to_cell('\n'.join(r[1:]), converter):
+        row.append(c[0])
+        if c[1] == "END_LINE":
             table.append(row[:])
             row = []
-        for c in csv_to_cell('\n'.join(r[1:]), converter):
-            row.append(c[0])
-            if c[1] == "END_LINE":
-                table.append(row[:])
-                row = []
-        return create_dict_from_columns(table)
-
+    return create_dict_from_columns(table)
+```
+    
 Ici l'implémentation montre un des défauts de notre conversion automatique de types : il est difficile de gérer le cas où plusieurs types de données différentes sont stockés. 
 
 # Un bon gros exemple d'utilisation pour finir 
 
-J'ai, pour illustrer cet article, réalisé un programme qui charge un fichier CSV pour l'afficher avec matplotlib. Le code est [ici][1]. 
+J'ai, pour illustrer cet article, réalisé un programme qui charge un fichier CSV pour l'afficher avec matplotlib. Le code est [ici](https://github.com/Klafyvel/ArticleSivigikCSV). 
 
-![][2]
-
- [1]: https://github.com/Klafyvel/ArticleSivigikCSV
- [2]: http://sivigik.com/wp-content/uploads/2016/02/screencastCSV.gif
+![](http://sivigik.com/wp-content/uploads/2016/02/screencastCSV.gif)
