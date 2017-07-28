@@ -117,7 +117,7 @@ Pour parler un peu moins de technique, j'ai découvert tout récemment
 **Dear ImGui** et son portage pour SFML. N'hésitez pas à jeter un coup d'oeuil [ici][4]. Voici ce que j'obtiens en compilant "simplement" l'exemple fourni : 
 
 <video controls>
-<source src="http://sivigik.com/wp-content/uploads/2016/06/ImGui1.mp4" type="video/mp4">
+<source src="/media/article/19/attachments/ImGui1.mp4" type="video/mp4">
 </video>
 
 C'est tout pour aujourd'hui ! à la prochaine. :)

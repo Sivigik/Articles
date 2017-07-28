@@ -680,12 +680,12 @@ Et sous vos yeux ébahis !
 *   [Le github du projet][11]
 
  [1]: http://http://pdp.microjoe.org/forums/sujet/606/algorithmie-python-interpreter-un-petit-langage#p10027
- [2]: http://www.heberger-image.fr/data/images/42137_sinus.png
- [3]: http://www.heberger-image.fr/data/images/30734_sinus_centre.png
- [4]: http://www.heberger-image.fr/data/images/79160_sinus_amplitude.png
- [5]: http://www.heberger-image.fr/data/images/70282_sinus_ok.png
+ [2]: /media/article/9/attachments/42137_sinus.png
+ [3]: /media/article/9/attachments/30734_sinus_centre.png
+ [4]: /media/article/9/attachments/79160_sinus_amplitude.png
+ [5]: /media/article/9/attachments/70282_sinus_ok.png
  [6]: http://docopt.org/
- [7]: http://www.heberger-image.fr/data/images/48206_fen_r.png
+ [7]: /media/article/9/attachments/48206_fen_r.png
  [8]: http://www.ordiecole.com/logo/hertz.html
  [9]: http://fsincere.free.fr/isn/python/cours_python_ch9.php
  [10]: http://progdupeu.pl/articles/68/introduction-a-la-compilation

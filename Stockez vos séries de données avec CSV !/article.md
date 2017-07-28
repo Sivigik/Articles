@@ -184,4 +184,4 @@ Ici l'implémentation montre un des défauts de notre conversion automatique de 
 
 J'ai, pour illustrer cet article, réalisé un programme qui charge un fichier CSV pour l'afficher avec matplotlib. Le code est [ici](https://github.com/Klafyvel/ArticleSivigikCSV). 
 
-![](http://sivigik.com/wp-content/uploads/2016/02/screencastCSV.gif)
+![](/media/article/8/attachments/screencastCSV.gif)

@@ -73,13 +73,13 @@ Le site qui m'a bien aidé pour la réalisation de cet hologramme :
 [http://ubernotes.blogspot.fr/][11]
 
  [1]: http://wscont2.apps.microsoft.com/winstore/1x/9d8ac4f3-efad-4384-a3af-436df31efaa0/Screenshot.269371.1000003.jpg
- [2]: http://www.heberger-image.fr/data/images/12532_20140502_213134.jpg
- [3]: http://www.heberger-image.fr/data/images/85956_20140502_214158.jpg
- [4]: http://www.heberger-image.fr/data/images/31337_20140502_214121.jpg
- [5]: http://www.heberger-image.fr/data/images/34799_2014_05_03_19.41.50.jpg
- [6]: http://www.heberger-image.fr/data/images/35537_Holo_skull.jpg
- [7]: http://www.heberger-image.fr/data/images/69173_20140502_223453.jpg
- [8]: http://www.heberger-image.fr/data/images/90793_20140502_223358.jpg
+ [2]: /media/article/5/attachments/12532_20140502_213134.jpg
+ [3]: /media/article/5/attachments/85956_20140502_214158.jpg
+ [4]: /media/article/5/attachments/31337_20140502_214121.jpg
+ [5]: /media/article/5/attachments/34799_2014_05_03_19.41.50.jpg
+ [6]: /media/article/5/attachments/35537_Holo_skull.jpg
+ [7]: /media/article/5/attachments/69173_20140502_223453.jpg
+ [8]: /media/article/5/attachments/90793_20140502_223358.jpg
  [9]: http://diy-community.de/attachment.php?attachmentid=101291
  [10]: http://apps.microsoft.com/windows/fr-fr/app/holograms/d7bfe37e-52dc-4ec9-a89a-3531a6fea54e
  [11]: http://ubernotes.blogspot.fr/2012/09/peppers-ghost-test-360-illusion-pyramid.html

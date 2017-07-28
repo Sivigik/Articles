@@ -27,7 +27,7 @@ Il est ici très simple -ce n'est pas l'objet de cet article- et se contente de 
 Vous pouvez d'ores et déjà essayer ce code via le moniteur série de l'arduino, je vous fais confiance ;) . 
 
 
-![Notre objectif !](/media/uploads/2017/07/12/allume_led.jpg)
+![Notre objectif !]( /media/article/18/attachments/allume_led.jpg)
 
 
 # Une première approche avec Python 
@@ -44,7 +44,7 @@ L'envoi de données est très simple. Il vous faudra sans doute changer le port 
 
 `COMx`. Sous GNU/Linux vous les retrouverez dans le répertoire `/dev/` (il faut vérifier que vous ayez les droits d'accès). La seule subtilité est que la méthode `write` attend en paramètre un objet de type `bytes` alors que la fonction `input` renvoie un `str`. Il faut donc effectuer la conversion. Et si tout se passe bien vous obtenez cette magnifique CLI : 
 
-![La CLI](/media/uploads/2017/07/12/CLI.png)
+![La CLI]( /media/article/18/attachments/CLI.png)
  
 # Une petite interface graphique 
 Si vous avez compris la première partie et si vous êtes à l'aise avec `tkinter`, cette partie ne devrait pas vous poser de problème. Nous allons simplement réaliser une interface graphique avec un bouton qui permettra d'allumer ou d'éteindre la LED.
@@ -161,8 +161,8 @@ Les exemples précédents comportent un problème. En effet le port série utili
 ```
 Et voilà le résultat ! 
 
-![Le résultat](/media/uploads/2017/07/12/interface.png)
+![Le résultat]( /media/article/18/attachments/interface.png)
 
 # Conclusion 
-Cette petite introduction au module `serial` est terminée ! Restez curieux et n'hésitez pas à bidouiller de petits programmes. Vous pouvez par exemple vous intéresser à la réception de données via Python qui peut se faire avec le même module ! Pour cela référez-vous à sa documentation ;) . Vous pouvez la retrouver [ici](/media/uploads/2017/07/12/interface.png) en ligne . Sinon un petit `python3 -c "import serial;help(serial)"` vous permettra d'accéder à la documentation du module hors ligne !
+Cette petite introduction au module `serial` est terminée ! Restez curieux et n'hésitez pas à bidouiller de petits programmes. Vous pouvez par exemple vous intéresser à la réception de données via Python qui peut se faire avec le même module ! Pour cela référez-vous à sa documentation ;) . Vous pouvez la retrouver [ici]( /media/article/18/attachments/interface.png) en ligne . Sinon un petit `python3 -c "import serial;help(serial)"` vous permettra d'accéder à la documentation du module hors ligne !
 

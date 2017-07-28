@@ -4,5 +4,5 @@ Vous connaissez sans doute le célébrissime **[Géogébra](https://fr.wikipedia
 
 La courbe décrite par le point K correspond à la valeur de l'angle de droite en fonction de celle de l'angle de gauche. On observe bien un comportement quasi-linéaire pour des valeurs proches de 90° (faible débattement), ce qui permet un contrôle fin de la trajectoire (par exemple en phase d'atterrissage), ainsi qu'un débattement élevé de la gouverne qui permettra de réaliser des figures acrobatiques ! Vous pouvez retrouver le fichier d'exemple [ici][2].
 
- [1]: http://sivigik.com/wp-content/uploads/2016/01/54287_anim_rapide2.gif
- [2]: http://sivigik.com/rsrc/profondeurMAD.ggb
+ [1]: http://sivigik.com/media/article/1/attachments/54287_anim_rapide2.gif
+ [2]: http://sivigik.com/media/article/1/attachments/profondeurMAD.ggb

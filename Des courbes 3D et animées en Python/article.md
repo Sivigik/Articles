@@ -1,10 +1,10 @@
 Le langage Python est un outil incroyable. Parmi les multiples bibliothèques que fourni la communauté, on retrouve les incontournables Matplotlib et Numpy. Ces deux bibliothèques sont très puissantes et permettent la manipulation et la présentation de données aisément. Je vous proposerais régulièrement des petits tutoriels avec exemples pour réaliser des rendus de données avec matplotlib. Pour vous donner une idée de ce qu'on peut faire, voici une animation d'exemple que j'ai réalisée ainsi que le code qui l'a généré. 
 
 <video controls>
-<source src="http://sivigik.com/wp-content/uploads/2016/02/article.mp4" type="video/mp4">
+<source src="/media/article/16/attachments/article.mp4" type="video/mp4">
 </video>
 
-Si la vidéo de charge pas, voir [ici]().
+Si la vidéo de charge pas, voir [ici](/media/article/16/attachments/article.mp4).
 
 ```python
 import numpy as np
@@ -66,6 +66,6 @@ D'autres animations que j'ai pu réaliser:
 
 ![le développement limité de cosinus à différents ordres][3]
 
- [1]: http://sivigik.com/animation.gif
- [2]: http://sivigik.com/Animation3D.gif
- [3]: http://sivigik.com/animationCos.gif
+ [1]: /media/article/16/attachments/animation.gif
+ [2]: /media/article/16/attachments/Animation3D.gif
+ [3]: /media/article/16/attachments/animationCos.gif

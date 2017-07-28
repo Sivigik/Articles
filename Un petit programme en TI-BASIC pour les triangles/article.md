@@ -27,4 +27,4 @@ Une question récurrente dans les QCMs du baccalauréat en math demande de quali
 :If (A-G)*(D-G)+(B-H)*(E-H)+(C-I)*(F-I)=0:Disp "RECTANGLE C"
 ```
 
-Pour ceux qui peuvent l'envoyer directement depuis l'ordinateur sur la calculatrice vous pouvez [le télécharger](/media/uploads/2017/07/25/TRIANGLE.8Xp) !
+Pour ceux qui peuvent l'envoyer directement depuis l'ordinateur sur la calculatrice vous pouvez [le télécharger](/media/article/3/attachments/TRIANGLE.8Xp) !

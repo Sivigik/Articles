@@ -11,7 +11,11 @@ Citation, *Comment ça marche* :
 Citation, *wikipedia* : 
 > L’intérêt de l'encodage base64 ne se trouve donc pas dans la représentation de données textuelles, mais surtout dans la représentation de données binaires. Lorsque l’on veut représenter des données binaires (une image, un exécutable) dans un document textuel, tel qu’un courriel, la simple transcription des 0 et des 1 utilise en ASCII un octet pour chaque bit : soit une augmentation de la taille d’un facteur 8. L'encodage en base64 permet en fait de limiter cette augmentation. 
 
-***Attendez ! Ne partez pas !*** L'intérêt du codage Base64 n'est pas l'objet de cet article. En effet, la réalisation d'un programme qui encode/décode est en réalité un prétexte à l'utilisation des masques et à la manipulation de données binaires !#Quelques règles Pour coder une information en base 64, on utilisera les caractères suivants: 
+***Attendez ! Ne partez pas !*** L'intérêt du codage Base64 n'est pas l'objet de cet article. En effet, la réalisation d'un programme qui encode/décode est en réalité un prétexte à l'utilisation des masques et à la manipulation de données binaires !
+
+#Quelques règles 
+
+Pour coder une information en base 64, on utilisera les caractères suivants: 
 
 ```
 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
@@ -57,6 +61,7 @@ Il faut maintenant découper ce nombre en paquets de six bits. Pour cela on va u
 Pour récupérer le premier groupe, on va donc utiliser `1111.1100.0000.0000.0000.0000` (`0xFC0000`). Pour le deuxième, `0000.0011.1111.0000.0000.0000` (`0x3F000`). Le troisième `0000.0000.0000.1111.1100.0000` (`0xFC0`). Enfin pour le quatrième `0000.0000.0000.0000.0011.1111` (`0x3F`). On utilisera également le décalage de bits à droite (18 pour le premier, 12 pour le second et 6 pour le troisième). Enfin, on fait correspondre chaque groupe à une valeur. 
 
 # L'encodeur python Assez blablaté ! passons à l'action !
+
 
 Tout d'abord, on va expliciter le jeu de caractères autorisés. 
 
@@ -273,7 +278,7 @@ def decode_string(string):
 *   [Wikipédia][3]
 *   [Comment ça marche][4]
 
- [1]: http://www.heberger-image.fr/data/images/88702_Sch_ma_encodage.png
+ [1]: /media/article/14/attachments/88702_Sch_ma_encodage.png
  [2]: https://github.com/Klafyvel/Base64Encoder
  [3]: http://fr.wikipedia.org/wiki/Base64
  [4]: http://www.commentcamarche.net/contents/94-codage-base64

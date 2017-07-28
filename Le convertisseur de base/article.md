@@ -1,4 +1,4 @@
-Il est parfois utile de pouvoir convertir rapidement entre les bases. Ce petit programme est là pour ça, et il va de la base 2 à la base 36 :) . [Lien de téléchargement](http://sivigik.com/prog/BASE.8Xp) 
+Il est parfois utile de pouvoir convertir rapidement entre les bases. Ce petit programme est là pour ça, et il va de la base 2 à la base 36 :) . [Lien de téléchargement](/media/article/13/attachments/BASE.8Xp) 
 
 ```basic
 :Lbl A
